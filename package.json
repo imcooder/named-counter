@@ -1,0 +1,14 @@
+{
+    "name": "named-counter",
+    "version": "1.0.1",
+    "description": "named counter",
+    "author": "imcooder <imcooder@gmail.com>",
+    "license": "MIT",
+    "repository": "git@github.com:imcooder/named-counter",
+    "dependencies": {
+        
+    },
+    "devDependencies": {
+        "eslint": "^3.6.1"
+    }
+}
