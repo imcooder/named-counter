@@ -7,10 +7,13 @@
 /* eslint-disable fecs-camelcase */
 /* eslint-disable fecs-no-require */
 'use strict';
-
+const duUtils = require('du-node-utils');
 class NamedCounter {
     constructor() {
         this._counterMap = {};
+        this.uuid = duUtils.makeUUID(true);
+        this.incKey = '__namedcounter_' + this.uuid;
+        this.decKey = '__namedcounter_' + this.uuid;
     }
     _getCounter(name) {
         let counter = null;
@@ -40,10 +43,10 @@ class NamedCounter {
         if (attachedObj === null || attachedObj === undefined) {
             return;
         }
-        if (attachedObj.__increased) {
+        if (attachedObj[this.incKey]) {
             return this.current(name);
         }
-        attachedObj.__increased = true;
+        attachedObj[this.incKey] = true;
         let counter = this._getCounter(name);
         let old = counter.num;
         counter.num += inc;
@@ -53,10 +56,10 @@ class NamedCounter {
         if (attachedObj === null || attachedObj === undefined) {
             return;
         }
-        if (attachedObj.__decreased) {
+        if (attachedObj[this.decKey]) {
             return this.current(name);
         }
-        attachedObj.__decreased = true;
+        attachedObj[this.decKey] = true;
         let counter = this._getCounter(name);
         let old = counter.num;
         counter.num -= inc;
