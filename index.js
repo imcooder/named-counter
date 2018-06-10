@@ -12,8 +12,8 @@ class NamedCounter {
     constructor() {
         this._counterMap = {};
         this.uuid = duUtils.makeUUID(true);
-        this.incKey = '__namedcounter_' + this.uuid;
-        this.decKey = '__namedcounter_' + this.uuid;
+        this.incKey = '__namedcounter_inc_' + this.uuid;
+        this.decKey = '__namedcounter_dec_' + this.uuid;
     }
     _getCounter(name) {
         let counter = null;
