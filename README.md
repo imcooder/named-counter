@@ -18,15 +18,23 @@ npm install named-counter -S
 ```javascript
 const namedCounter = require('named-counter');
 namedCounter.increase('all_cnt');
+namedCounter.increaseOnce(req, 'req_cnt');
 namedCounter.decrease('all_cnt');
+namedCounter.decrease(req, 'req_cnt');
 namedCounter.toString() // all_cnt:2  样式string
 ```
+
+## 
+increaseOnce: an same object increase once
+decreaseOnce: an same object decrease once
 
 ## example
 ```javascript
 express.use((req, res, next) => {
 	namedCounter.increase('all_cnt');
+	namedCounter.increaseOnce(req, 'req_cnt');
 	onFinished(res, (err, res) => {
+		namedCounter.decreaseOnce(req, 'req_cnt');
 		namedCounter.decrease('all_cnt');
 		if (err) {
 			logger.warn('logid:%s onFinish error:%s', logid, err.stack);

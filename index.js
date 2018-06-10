@@ -35,6 +35,34 @@ class NamedCounter {
         counter.num -= inc;
         return old;
     }
+
+    increaseOnce(attachedObj, name, inc = 1) {
+        if (attachedObj === null || attachedObj === undefined) {
+            return;
+        }
+        if (attachedObj.__increased) {
+            return this.current(name);
+        }
+        attachedObj.__increased = true;
+        let counter = this._getCounter(name);
+        let old = counter.num;
+        counter.num += inc;
+        return old;
+    }
+    decreaseOnce(attachedObj, name, inc = 1) {
+        if (attachedObj === null || attachedObj === undefined) {
+            return;
+        }
+        if (attachedObj.__decreased) {
+            return this.current(name);
+        }
+        attachedObj.__decreased = true;
+        let counter = this._getCounter(name);
+        let old = counter.num;
+        counter.num -= inc;
+        return old;
+    }
+
     reset(name) {
         let counter = this._getCounter(name);
         counter.num = 0;
