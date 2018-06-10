@@ -13,7 +13,7 @@ dueros node utils
 [david-url]: https://david-dm.org/imcooder/named-counter
 
 
-# useage
+# usage
 const namedCounter = require('named-counter');
 namedCounter.increase('all_cnt');
 namedCounter.decrease('all_cnt');
