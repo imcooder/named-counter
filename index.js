@@ -43,10 +43,11 @@ class NamedCounter {
         if (attachedObj === null || attachedObj === undefined) {
             return;
         }
-        if (attachedObj[this.incKey]) {
+        let uniqId = this.decKey + '_' + name;
+        if (attachedObj[uniqId]) {
             return this.current(name);
         }
-        attachedObj[this.incKey] = true;
+        attachedObj[uniqId] = true;
         let counter = this._getCounter(name);
         let old = counter.num;
         counter.num += inc;
@@ -56,10 +57,11 @@ class NamedCounter {
         if (attachedObj === null || attachedObj === undefined) {
             return;
         }
-        if (attachedObj[this.decKey]) {
+        let uniqId = this.decKey + '_' + name;
+        if (attachedObj[uniqId]) {
             return this.current(name);
         }
-        attachedObj[this.decKey] = true;
+        attachedObj[uniqId] = true;
         let counter = this._getCounter(name);
         let old = counter.num;
         counter.num -= inc;
