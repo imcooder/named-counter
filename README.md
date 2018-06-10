@@ -24,8 +24,8 @@ namedCounter.toString() // all_cnt:2  样式string
 ## example
 
 express.use((req, res, next) => {
-	namedCounter.increase('all_cnt');		
-	onFinished(res, (err, res) => {		
+	namedCounter.increase('all_cnt');
+	onFinished(res, (err, res) => {
 		namedCounter.decrease('all_cnt');
 		if (err) {
 			logger.warn('logid:%s onFinish error:%s', logid, err.stack);
