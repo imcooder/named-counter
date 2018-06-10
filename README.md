@@ -12,12 +12,15 @@ dueros node utils
 [david-image]: https://img.shields.io/david/imcooder/named-counter.svg
 [david-url]: https://david-dm.org/imcooder/named-counter
 
-
+# install
+npm install named-counter -S
 # usage
+```javascript
 const namedCounter = require('named-counter');
 namedCounter.increase('all_cnt');
 namedCounter.decrease('all_cnt');
 namedCounter.toString() // all_cnt:2  样式string
+```
 
 ## example
 ```javascript
