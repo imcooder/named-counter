@@ -16,13 +16,11 @@ dueros node utils
 # useage
 const namedCounter = require('named-counter');
 namedCounter.increase('all_cnt');
-
 namedCounter.decrease('all_cnt');
-
 namedCounter.toString() // all_cnt:2  样式string
 
 ## example
-
+```javascript
 express.use((req, res, next) => {
 	namedCounter.increase('all_cnt');
 	onFinished(res, (err, res) => {
@@ -34,3 +32,4 @@ express.use((req, res, next) => {
 	});
 	next();
 });
+```
