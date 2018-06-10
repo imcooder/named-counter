@@ -43,7 +43,7 @@ class NamedCounter {
         if (attachedObj === null || attachedObj === undefined) {
             return;
         }
-        let uniqId = this.decKey + '_' + name;
+        let uniqId = this.incKey + '_' + name;
         if (attachedObj[uniqId]) {
             return this.current(name);
         }
