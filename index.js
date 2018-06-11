@@ -76,6 +76,13 @@ class NamedCounter {
         let counter = this._getCounter(name);
         return counter.num;
     }
+    toObject() {
+        let tmpO = {};
+        for(let key in this._counterMap) {
+            tmpO[key] = this._counterMap[key].num;
+        }
+        return tmpO;
+    }
     toString() {
         let tmpV = [];
         for(let key in this._counterMap) {
